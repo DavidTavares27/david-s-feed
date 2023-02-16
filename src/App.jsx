@@ -14,6 +14,8 @@ export function App() {
         <main>
           <Post />
           <Post />
+          <Post />
+          <Post />
         </main>
       </div>
     </div>
