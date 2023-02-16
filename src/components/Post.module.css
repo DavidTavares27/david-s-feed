@@ -1,0 +1,73 @@
+.post {
+  padding: 2.5rem;
+  border-radius: 8px;
+  background: var(--gray800);
+}
+
+.post + .post {
+  /*serve para estilizar um post que antes dele tem um outro post também */
+  margin-top: 2rem;
+}
+
+.content {
+  line-height: 1.6;
+  color: var(--gray300);
+  margin-top: 1.5rem;
+}
+
+.content p {
+  margin-top: 1rem;
+}
+
+.content a {
+  font-weight: bold;
+  color: var(--green500);
+  text-decoration: none;
+}
+
+.content a:hover {
+  color: var(--green300);
+}
+
+.post > header {
+  /*Pega o header que está no primero nível do post */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post > header time {
+  font-size: 0.875rem;
+  color: var(--gray400);
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.authorInfo strong {
+  display: block;
+  color: vsr(--gr100);
+  line-height: 1.6;
+}
+
+.authorInfo span {
+  display: block;
+  font-size: 0.875rem;
+  color: vsr(--gr400);
+  line-height: 1.6;
+}
+
+.author img {
+  width: calc(
+    3rem + 12px
+  ); /*Cálculo para fazer com que border, outline não comprimam a imagem */
+  height: calc(
+    3rem + 12px
+  ); /*Soma os 3rem do height/width + a soma das bordas(8px do border + 4 do outline)*/
+  border-radius: 8px;
+  border: 4px solid var(--gray800);
+  outline: 2px solid var(--green500);
+}
