@@ -17,18 +17,6 @@
   margin-top: calc(0px - 1.5rem - 6px);
 }
 
-.avatar {
-  width: calc(
-    3rem + 12px
-  ); /*Cálculo para fazer com que border, outline não comprimam a imagem */
-  height: calc(
-    3rem + 12px
-  ); /*Soma os 3rem do height/width + a soma das bordas(8px do border + 4 do outline)*/
-  border-radius: 8px;
-  border: 4px solid var(--gray800);
-  outline: 2px solid var(--green500);
-}
-
 .profile strong {
   margin-top: 1rem;
   color: var(--gray100);
