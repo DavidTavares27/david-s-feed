@@ -1,8 +1,22 @@
+import { format, formatDistanceToNow } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
+
 import { ThumbsUp, Trash } from "phosphor-react";
 import { Avatar } from "./Avatar";
 import styles from "./Comment.module.css";
 
 export function Comment() {
+  const publishedAt = new Date("2023-02-25 10:00:00");
+  const publishedDaterelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true,
+  });
+  const publishedDateFormatted = format(
+    publishedAt,
+    "d 'de' LLLL 'às' HH:mm'h'",
+    { locale: ptBR }
+  );
+
   return (
     <div className={styles.comment}>
       <Avatar hasBorder={false} src="https://github.com/lucascebertin.png" />
@@ -12,8 +26,11 @@ export function Comment() {
           <header>
             <div className={styles.AuthorAndTime}>
               <strong></strong>
-              <time title="15 de Janeiro às 08:30" dateTime="2023-02-15 18:30">
-                Cerca de 1hora atrás
+              <time
+                title={publishedDateFormatted}
+                dateTime={publishedAt.toISOString()}
+              >
+                {publishedDaterelativeToNow}
               </time>
             </div>
             <button title="Deletar comentário">
@@ -21,7 +38,7 @@ export function Comment() {
             </button>
           </header>
 
-          <p>Muito bom Black, parabéns!! 👏🏽👏🏽</p>
+          <p>Muito bom mano, parabéns!! 👏🏽👏🏽</p>
         </div>
 
         <footer>
