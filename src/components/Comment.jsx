@@ -5,7 +5,7 @@ import { ThumbsUp, Trash } from "phosphor-react";
 import { Avatar } from "./Avatar";
 import styles from "./Comment.module.css";
 
-export function Comment() {
+export function Comment({ content, onDeleteComment }) {
   const publishedAt = new Date("2023-02-25 10:00:00");
   const publishedDaterelativeToNow = formatDistanceToNow(publishedAt, {
     locale: ptBR,
@@ -16,7 +16,9 @@ export function Comment() {
     "d 'de' LLLL 'às' HH:mm'h'",
     { locale: ptBR }
   );
-
+  function handleDeleteComment() {
+    onDeleteComment(content);
+  }
   return (
     <div className={styles.comment}>
       <Avatar hasBorder={false} src="https://github.com/lucascebertin.png" />
@@ -33,12 +35,12 @@ export function Comment() {
                 {publishedDaterelativeToNow}
               </time>
             </div>
-            <button title="Deletar comentário">
+            <button onClick={handleDeleteComment} title="Deletar comentário">
               <Trash size={24} />
             </button>
           </header>
 
-          <p>Muito bom mano, parabéns!! 👏🏽👏🏽</p>
+          <p>{content}</p>
         </div>
 
         <footer>
